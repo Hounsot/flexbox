@@ -62,7 +62,7 @@
           --section-title-line-height: 100%;
           --section-title-weight: 500;
           --section-title-transform: uppercase;
-          --image-text-size: 32px;
+          --image-text-size: 24px;
           --image-text-line-height: 130%;
           --image-text-weight: 500;
           --image-text-transform: uppercase;
@@ -70,10 +70,12 @@
           --table-text-weight: 500;
           --table-text-transform: uppercase;
           --table-first-width: 190px;
-          --table-second-width: 230px;
-          --table-third-width: 227px;
-          --table-fourth-width: 283px;
-          --table-fifth-width: 100%;
+          --table-second-width: 170px;
+          --table-third-width: 195px;
+          --table-fourth-width: 175px;
+          --table-fifth-width: 132px;
+          --table-sixth-width: 190px;
+          --table-seventh-width: 100%;
           --button-font-size: 16px;
           --button-font-weight: 500;
           --main-button-round: 60px;
@@ -209,6 +211,10 @@
           width: 100%;
           padding: 0;
           border-top: 1px solid rgba(24, 24, 24, 0.15);
+          border-bottom: 1px solid rgba(24, 24, 24, 0.15);
+          &.U_NoTopBorder{
+            border-top: none;
+          }
         }
         .custom-form__form{
           display: flex;
@@ -297,7 +303,10 @@
           height: auto;
           width: 100%
         }
-
+        .W_MainTable{
+          width: fit-content;
+          min-width: 100%;
+        }
         .W_NavbarSocials {
           width: 100%;
           display: -webkit-box;
@@ -346,7 +355,50 @@
           pointer-events: all;
           background-color: #181818e6
         }
-
+        .W_Toggle{
+          position: relative;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          height: 40px;
+          background-color: var(--white-color);
+          border-radius: 100px;
+          border: 1px solid #181818;
+        }
+        .W_ToggleContainer{
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          gap: 48px;
+          height: fit-content;
+          background-color: var(--white-color);
+          padding: 24px calc((100vw - 1440px) / 2 + 48px) 0;
+        }
+        .W_ToggleItem{
+          position: relative;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          color: #fff;
+          mix-blend-mode: difference;
+          align-items: center;
+          width: 100%;
+          line-height: 100%;
+          cursor: pointer;
+          height: 100%;
+        }
+        .Q_ToggleBG{
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 50%;
+          height: 100%;
+          background-color: #181818;
+          border-radius: 100px;
+          transition: all 0.5s cubic-bezier(.77, 0, .175, 1);
+        }
         .W_NavbarItemsBurger {
           display: -webkit-box;
           display: -ms-flexbox;
@@ -527,6 +579,7 @@
           align-items: center;
           gap: 40px;
           padding: 48px;
+          width: 100%;
           max-width: 1440px;
         }
 
@@ -547,6 +600,7 @@
           height: 100%
         }
         .W_TableForPhoneScroll{
+          overflow-x: scroll;
           width: 100%;
         }
         .Q_Line {
@@ -736,7 +790,10 @@
           -webkit-box-orient: horizontal;
           -webkit-box-direction: normal;
           -ms-flex-direction: row;
-          flex-direction: row
+          flex-direction: row;
+          &.U_Gap{
+            gap: 48px !important;
+          }
         }
 
         .W_FormCheckBoxInfo {
@@ -786,7 +843,7 @@
           -ms-flex-align: center;
           align-items: center;
           width: 100%;
-          height: 49px;
+          height: 60px;
           gap: 10px;
           border-top: 1px solid rgba(24, 24, 24, .15);
           padding: 16px 0
@@ -1016,7 +1073,7 @@
           flex-direction: row;
           gap: 38px
         }
-
+        
         .W_Fields {
           display: -webkit-box;
           display: -ms-flexbox;
@@ -1028,7 +1085,8 @@
           width: 100%;
           -webkit-box-align: end;
           -ms-flex-align: end;
-          align-items: flex-end
+          align-items: flex-end;
+          margin-top: 48px;
         }
 
         .W_BlackBackground {
@@ -1045,7 +1103,13 @@
           justify-content: center;
           width: 100%;
           height: 776px;
-          background-color: var(--text-color) !important
+          background-color: var(--text-color) !important;
+          &.U_Kuvekino{
+            background-color: #BDB7AA !important;
+          }
+          &.U_Balashiha{
+            background-color: #4F98A3 !important;
+          }
         }
 
         .W_WithoutSmallTitle {
@@ -1173,7 +1237,13 @@
           height: 100%;
           width: 100%
         }
-
+        .A_SectionTitleMap{
+          color: var(--white-color) !important;
+          font-size: 57px;
+          line-height: 100%;
+          font-weight: 500;
+          text-transform: uppercase;
+        }
         .W_AddresAndTableItems {
           display: -webkit-box;
           display: -ms-flexbox;
@@ -1186,7 +1256,10 @@
           -ms-flex-pack: justify;
           justify-content: space-between;
           height: 485px;
-          min-height: 485px
+          min-height: 485px;
+          .A_SmallTitle{
+            color: var(--white-color) !important;
+          }
         }
 
         .W_TableColumns {
@@ -1617,13 +1690,23 @@
         }
 
         .U_Fifth {
-          text-align: end;
           min-width: -webkit-fit-content;
           min-width: -moz-fit-content;
-          min-width: fit-content;
-          width: var(--table-fifth-width)
+          min-width: var(--table-fifth-width);
+          width: var(--table-fifth-width);
         }
-
+        .U_Sixth {
+          min-width: -webkit-fit-content;
+          min-width: -moz-fit-content;
+          min-width: var(--table-sixth-width);
+          width: var(--table-sixth-width)
+        }
+        .U_Seventh {
+          text-align: end;
+          width: 100%;
+          max-width: 100%;
+          min-width: fit-content;
+              }
         .U_ProjectColor {
           color: var(--project-color) !important
         }
@@ -1751,9 +1834,6 @@
           text-transform: uppercase
         }
 
-        .U_TableRowHug {
-          height: 65px
-        }
 
         .U_FirstFooterItem {
           gap: 7px;
@@ -1857,18 +1937,17 @@
             --section-title-line-height: 100%;
             --section-title-weight: 500;
             --section-title-transform: uppercase;
-            --image-text-size: 24px;
+            --image-text-size: 16px;
             --image-text-line-height: 130%;
             --image-text-weight: 500;
             --image-text-transform: uppercase;
             --table-text-size: 13px;
             --table-text-weight: 500;
             --table-text-transform: uppercase;
-            --table-first-width: 70px;
+            --table-first-width: 110px;
             --table-second-width: 114px;
-            --table-third-width: 134px;
-            --table-fourth-width: 223px;
-            --table-fifth-width: 100%;
+            --table-third-width: 180px;
+            --table-fourth-width: 180px;
             --button-font-size: 16px;
             --main-button-round: 60px;
             --main-button-height: 47px;
@@ -1885,6 +1964,13 @@
             --image-paddings: 24px;
             --line-height-base: 1.5
           }
+          .W_ToggleContainer{
+            padding: 24px 48px 0;
+          }
+          .A_SectionTitleMap{
+            font-size: 38px;
+          }
+  
           .W_FormPart {
             &.U_Left{
               padding-left: 48px;
@@ -1893,13 +1979,25 @@
               padding-right: 48px;
             }
           }
+          .O_Navbar{
+            padding: 0 48px;
+            max-width: 100%;
+          }
+          .O_OpeningPage{
+            padding: 48px;
+          }
           .A_ScrollMap {
             display: none
           }
-
+          .W_ProjectInfo{
+            padding: 24px 48px;
+          }
           .A_3Dplan {
             width: 100%;
             height: 100%
+          }
+          .U_SmallImageBox {
+            font-size: 18px
           }
 
           .Q_3dPlanImage {
@@ -1925,11 +2023,14 @@
           .O_Distinctives {
             gap: 40px
           }
-
+          .O_Distinctives{
+            padding: 48px;
+          }
           .O_SelectorFilters {
             height: -webkit-fit-content;
             height: -moz-fit-content;
-            height: fit-content
+            height: fit-content;
+            width: 100%;
           }
 
           .M_InfoBlock {
@@ -2048,7 +2149,9 @@
             -webkit-box-orient: vertical;
             -webkit-box-direction: normal;
             -ms-flex-direction: column;
-            flex-direction: column
+            flex-direction: column;
+            width: 100%;
+            min-width: 100%;
           }
           .A_RowTextBlack{
             &.U_Right{
@@ -2114,7 +2217,6 @@
         }
 
         .U_Fifth {
-          text-align: end;
           width: var(--table-fifth-width)
         }
 
@@ -2148,18 +2250,16 @@
             --section-title-line-height: 100%;
             --section-title-weight: 500;
             --section-title-transform: uppercase;
-            --image-text-size: 24px;
             --image-text-line-height: 130%;
             --image-text-weight: 500;
             --image-text-transform: uppercase;
             --table-text-size: 13px;
             --table-text-weight: 500;
             --table-text-transform: uppercase;
-            --table-first-width: 70px;
+            /* --table-first-width: 70px;
             --table-second-width: 114px;
             --table-third-width: 134px;
-            --table-fourth-width: 243px;
-            --table-fifth-width: 100%;
+            --table-fourth-width: 243px; */
             --button-font-size: 16px;
             --main-button-round: 60px;
             --main-button-height: 47px;
@@ -2182,7 +2282,9 @@
             display: -ms-flexbox;
             display: flex
           }
-
+          .U_SmallImageBox {
+            font-size: 16px
+          }
           .O_SelectorFilters {
             -webkit-box-orient: vertical;
             -webkit-box-direction: normal;
@@ -2209,7 +2311,9 @@
             -ms-flex-line-pack: center;
             align-content: center
           }
-
+          .W_ToggleContainer{
+            padding: 24px 24px 0;
+          }
           .W_BurgerMenuList {
             width: 100vw
           }
@@ -2226,7 +2330,6 @@
             -webkit-box-direction: normal;
             -ms-flex-direction: column;
             flex-direction: column;
-            padding: 24px 0 24px 0;
           }
           .A_Description{
             font-size: 18px !important;
@@ -2347,7 +2450,7 @@
             height: -moz-fit-content;
             height: fit-content;
             width: 100%;
-            overflow: scroll
+            overflow-x: scroll
           }
 
           .O_Sale {
@@ -2382,9 +2485,6 @@
             padding-right: 12px
           }
 
-          .U_SmallImageBox {
-            font-size: 14px
-          }
 
           .M_InfoBlock {
             padding: 24px;
@@ -2589,6 +2689,7 @@
           }
 
           .A_Map {
+            height: 70vh;
             width: 100%
           }
 
@@ -2601,22 +2702,7 @@
           height: 400px
         }
 
-        @media all and (max-width: 920px) {
-          .W_MainTable {
-            min-width: 115vw
-          }
-        }
-
         @media all and (max-width: 756px) {
-          :root {
-            --table-first-width: 120px;
-            --table-second-width: 164px;
-            --table-third-width: 174px
-          }
-
-          .W_MainTable {
-            width: 150vw
-          }
 
           .Q_3dPlanImage {
             aspect-ratio: unset;
@@ -2678,18 +2764,6 @@
           }
         }
 
-        @media all and (max-width: 680px) {
-          .W_MainTable {
-            min-width: 170vw
-          }
-        }
-
-        @media all and (max-width: 520px) {
-          .W_MainTable {
-            min-width: 200vw
-          }
-        }
-
         @media all and (max-width: 500px) {
           .Q_3dPlanImage {
             aspect-ratio: unset;
@@ -2697,10 +2771,6 @@
             width: 100%;
             background-image: url(https://optim.tildacdn.com/tild3335-6138-4332-a637-396164623133/-/format/webp/MapBalashiha.jpg);
             background-size: cover
-          }
-
-          .W_MainTable {
-            width: 250vw
           }
         }
 
@@ -2722,18 +2792,17 @@
             --section-title-line-height: 100%;
             --section-title-weight: 500;
             --section-title-transform: uppercase;
-            --image-text-size: 24px;
             --image-text-line-height: 130%;
             --image-text-weight: 500;
             --image-text-transform: uppercase;
             --table-text-size: 13px;
             --table-text-weight: 500;
             --table-text-transform: uppercase;
-            --table-first-width: 70px;
+            /* --table-first-width: 70px;
             --table-second-width: 114px;
             --table-third-width: 134px;
             --table-fourth-width: 243px;
-            --table-fifth-width: 100%;
+            --table-fifth-width: 100%; */
             --button-font-size: 16px;
             --main-button-round: 60px;
             --main-button-height: 47px;
@@ -2798,12 +2867,6 @@
         }
 
         @media all and (max-width: 393px) {
-          :root {
-            --table-first-width: 100px;
-            --table-second-width: 134px;
-            --table-third-width: 130px
-          }
-
           .A_3Dplan {
             width: 100%;
             height: 466px
@@ -2812,12 +2875,6 @@
           .A_3Dplan {
             width: 100%;
             height: 426px
-          }
-        }
-
-        @media all and (max-width: 356px) {
-          .W_MainTable {
-            min-width: 300vw
           }
         }
 
